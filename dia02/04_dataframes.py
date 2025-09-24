@@ -28,3 +28,13 @@ df_clientes.columns
 #%%
 
 df_clientes.index
+
+#%%
+
+df_clientes.info(memory_usage='deep',max_cols=2)
+
+#%%
+
+df_clientes.dtypes["flEmail"]
+
+#%%
