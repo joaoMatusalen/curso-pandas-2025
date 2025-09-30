@@ -37,5 +37,15 @@ clientes.sort_values(by=["qtdePontos", "idCliente"], ascending=[True, True]).hea
 #%%
 #05.05 - Selecione a primeira transação diária de cada cliente.
 
+import pandas as pd
+
+
 transacao = pd.read_csv("../../data/transacoes.csv", sep=";")
 
+transacao.sort_values(by="DtCriacao", ascending=True)
+
+transacao["Data"] = pd.to_datetime(transacao["DtCriacao"]).dt.date
+
+transacao.drop_duplicates(keep="first", subset=["IdCliente", "Data"])
+
+transacao
